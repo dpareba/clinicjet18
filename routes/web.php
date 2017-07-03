@@ -173,6 +173,10 @@ Route::get('slots.appointmentstoday',[
 	'as'=>'slots.appointmentstoday',
 	'uses'=>'SlotController@appointmentstoday'
 	]);
+Route::get('patients.docspatients',[
+	'as'=>'patients.docspatients',
+	'uses'=>'PatientController@docspatients'
+	]);
 
 
 

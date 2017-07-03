@@ -44,7 +44,8 @@
              <li class="{{Request::is('slots')?'active':''}}"><a href="{{route('slots.index')}}"><i class="fa fa-circle-o text-aqua"></i> View Today's Appointments</a></li>
           @else
               <li class="{{Request::is('slots.appointmentstoday')?'active':''}}"><a href="{{route('slots.appointmentstoday')}}"><i class="fa fa-circle-o text-aqua"></i> View Today's Appointments</a></li>
-             {{-- <li class="{{Request::is('patients')?'active':''}}"><a href=""><i class="fa fa-circle-o text-yellow"></i> View My Patients</a></li> --}}
+
+             <li class="{{Request::is('patients.docspatients')?'active':''}}"><a href="{{route('patients.docspatients')}}"><i class="fa fa-circle-o text-yellow"></i> View My Patients</a></li>
           @endif
          
         </ul>

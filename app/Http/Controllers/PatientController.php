@@ -27,6 +27,12 @@ class PatientController extends Controller
         $this->middleware('auth');
     }
 
+    public function docspatients(){
+        $visits = Visit::where('user_id','=',Auth::user()->id)->get();
+        //dd($visits);
+        return view('patients.docspatients')->withVisits($visits);
+    }
+
     /**
      * Display a listing of the resource.
      *
