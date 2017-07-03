@@ -10,6 +10,7 @@ use Session;
 use App\Slot;
 use Carbon\Carbon;
 use DB;
+use Auth;
 
 class SlotController extends Controller
 {
@@ -29,7 +30,7 @@ class SlotController extends Controller
         // dd($dtdate);
         // $usercount = Slot::where('clinic_id',$clinicid)->where('slotdate','=',$dt->toDateString())->count(DB::raw('DISTINCT user_id'));
         $slots = Slot::where('clinic_id',$clinicid)->where('slotdate','=',$dt->toDateString())->get();
-         
+
         //dd($slots);
         //$usercount = $slots->groupBy('user_id')->count();
         $slots = $slots->groupBy('user_id');
@@ -45,6 +46,14 @@ class SlotController extends Controller
         //$s = Slot::all();
         return view('slots.index')->withSlots($slots);
     }
+
+    public function appointmentstoday(){
+       $dt = Carbon::now();
+       $clinicid = Clinic::where(['cliniccode'=>Session::get('cliniccode')])->first()->id;
+       $slots = Slot::where('clinic_id',$clinicid)->where('user_id','=',Auth::user()->id)->where('slotdate','=',$dt->toDateString())->orderBy('token','asc')->get();
+            //dd($slots);
+       return view('patients.today')->withSlots($slots);
+   }
 
     /**
      * Show the form for creating a new resource.

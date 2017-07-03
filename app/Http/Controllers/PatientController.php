@@ -17,6 +17,8 @@ use App\State;
 use Charts;
 use App\Visit;
 use App\Template;
+use App\Slot;
+
 
 class PatientController extends Controller
 {
@@ -36,8 +38,14 @@ class PatientController extends Controller
 
             // $clinicid = Clinic::where(['cliniccode'=>Session::get('cliniccode')])->first()->id;
             // $patients = Clinic::find($clinicid)->patients;
-        $patients = Patient::all();
-        return view('patients.index')->withPatients($patients);
+        if (Auth::user()->doctype == "RECEPTIONIST") {
+            $patients = Patient::all();
+            return view('patients.index')->withPatients($patients);
+        }else{
+            return redirect()->route('slots.appointmentstoday');
+           
+        }
+        
         
         
     }

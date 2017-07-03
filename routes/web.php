@@ -169,6 +169,11 @@ Route::post('slots.assigntoken',[
 	'uses'=>'SlotController@assigntoken'
 	]);
 
+Route::get('slots.appointmentstoday',[
+	'as'=>'slots.appointmentstoday',
+	'uses'=>'SlotController@appointmentstoday'
+	]);
+
 
 
 
