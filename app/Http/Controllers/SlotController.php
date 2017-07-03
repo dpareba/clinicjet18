@@ -33,7 +33,8 @@ class SlotController extends Controller
         //dd($slots);
         //$usercount = $slots->groupBy('user_id')->count();
         $slots = $slots->groupBy('user_id');
-        $slots->toArray();
+        //$slots->toArray();
+        //dd($slots);
         //dd($slotsgrp);
         //$docname->toArray();
         //$docname->implode('token');

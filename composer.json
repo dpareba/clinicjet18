@@ -10,7 +10,8 @@
         "devdojo/chatter": "0.1.*",
         "intervention/image": "^2.3",
         "niklasravnsborg/laravel-pdf": "^1.5",
-        "consoletvs/charts": "4.*"
+        "consoletvs/charts": "4.*",
+        "barryvdh/laravel-debugbar": "^2.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
